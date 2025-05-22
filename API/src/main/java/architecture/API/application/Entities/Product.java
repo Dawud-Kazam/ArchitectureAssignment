@@ -15,16 +15,18 @@ public class Product {
     @NotNull
     private double fullPrice;
 
+    Product(){}
+
+    Product( double fullPrice) {
+        this.fullPrice = fullPrice;
+    }
+
     public Long getProductID() {
         return productID;
     }
     
     public double getFullPrice() {
         return fullPrice;
-    }
-
-    public void setFullPrice(double price) {
-        fullPrice = price;
     }
 
     @Override

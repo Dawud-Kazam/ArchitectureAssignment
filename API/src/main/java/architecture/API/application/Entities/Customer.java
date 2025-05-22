@@ -1,11 +1,22 @@
 package architecture.API.application.Entities;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
 
+
+@Entity
 public class Customer {
+    @NotNull(message = "id cannot be null")
     private @Id Long customerID;
+
+    Customer(){}
+
+    Customer(Long customerID) {
+        this.customerID = customerID;
+    }
 
     public Long getCustomerID() {
         return customerID;
