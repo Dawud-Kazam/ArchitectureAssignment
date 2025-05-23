@@ -18,7 +18,7 @@ public class Basket {
     private Long customerID;
 
     @JdbcTypeCode(SqlTypes.JSON)
-    private HashMap<Product, Integer> products;
+    private HashMap<Long, Integer> products;
     private Promotion promotion;
 
     Basket(){}
@@ -27,17 +27,17 @@ public class Basket {
     public Basket(long customerID) {
 //        promotion = new Promotion(0, "");
         this.customerID = customerID;
-        products = new HashMap<Product, Integer>();
+        products = new HashMap<Long, Integer>();
     }
 
-    public void AddProduct(Product p, Integer amount) {
-        System.out.println(p);
+    public void AddProduct(Long pID, Integer amount) {
+        System.out.println(pID);
         System.out.println(amount);
-        products.put(p, amount);
-        System.out.println(products.get(p));
+        products.put(pID, amount);
+//        System.out.println(products.get(p));
     }
 
-    public Map<Product, Integer> GetProducts() {
+    public Map<Long, Integer> GetProducts() {
         return products;
     }
 
@@ -60,11 +60,11 @@ public class Basket {
             discountMultiplier = 1 - promotion.getDiscountPercent();
         }
 
-        for (Product product : products.keySet()) {
-            Integer amount = products.get(product);
-
-            totalPrice += (product.getFullPrice() * discountMultiplier) * amount;
-        }
+//        for (Product product : products.keySet()) {
+//            Integer amount = products.get(product);
+//
+//            totalPrice += (product.getFullPrice() * discountMultiplier) * amount;
+//        }
 
         return totalPrice;
     }
@@ -72,7 +72,7 @@ public class Basket {
 
     @Override
     public String toString() {
-        return "basket id: " + basketID + ", customer id: " + this.customerID + "prodcuts: " + products.toString();
+        return "basket id: " + basketID + ", customer id: " + this.customerID + ", prodcuts: " + products.toString();
     }
 
     @Override

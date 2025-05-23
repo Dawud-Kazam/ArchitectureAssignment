@@ -44,18 +44,20 @@ public class BasketController {
     @PutMapping("/basket/{basketID}/{productID}")
     Basket addToBasket(@PathVariable Long basketID, @PathVariable Long productID, @RequestBody Integer quantity) throws Exception {
 
-        Product temp =  productRepository.getById(productID);
+//        Product temp =  productRepository.getById(productID);
 
-        System.out.println(temp);
+        System.out.println(productID);
         System.out.println(quantity);
 
         return basketRepository.findById(basketID)
                 .map(basket -> {
-                    basket.AddProduct(temp, quantity);
+                    basket.AddProduct(productID, quantity);
                     return basketRepository.save(basket);
                 })
                 .orElseThrow(() -> new Exception("Failed"));
     }
+
+
 
     @GetMapping("/basket/test")
     String checkBasket(){
