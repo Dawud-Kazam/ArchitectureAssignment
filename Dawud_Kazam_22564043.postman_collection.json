@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "ad47b327-8232-4b61-9b03-dc74b568acd8",
+		"name": "Dawud_Kazam_22564043-PostmanCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39314221",
+		"_collection_link": "https://www.postman.com/delet5/workspace/architecture-assignment/collection/39314221-ad47b327-8232-4b61-9b03-dc74b568acd8?action=share&source=collection_link&creator=39314221"
+	},
+	"item": [
+		{
+			"name": "Basket",
+			"item": [
+				{
+					"name": "Create Basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/basket/1234",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"basket",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Baskets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/basket",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"basket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add to Basket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "3",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/basket/1/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"basket",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Make order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cardNumber\": \"4000056655665556\",\r\n    \"expiry\": \"12/27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/order/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Promotion",
+			"item": [
+				{
+					"name": "Add Promotion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "DISCOUNT10"
+						},
+						"url": {
+							"raw": "localhost:8080/promotion/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"promotion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
