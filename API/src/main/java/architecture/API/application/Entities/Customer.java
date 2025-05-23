@@ -22,10 +22,6 @@ public class Customer {
         return customerID;
     }
 
-    public void setCustomerID(Long customerID) {
-        this.customerID = customerID;
-    }
-
     @Override
     public String toString() {
         return "Customer id: " + customerID;

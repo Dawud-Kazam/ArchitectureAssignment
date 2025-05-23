@@ -19,22 +19,19 @@ public class Basket {
 
     @JdbcTypeCode(SqlTypes.JSON)
     private HashMap<Long, Integer> products;
+    @JdbcTypeCode(SqlTypes.JSON)
     private Promotion promotion;
 
     Basket(){}
 
 
     public Basket(long customerID) {
-//        promotion = new Promotion(0, "");
         this.customerID = customerID;
         products = new HashMap<Long, Integer>();
     }
 
     public void AddProduct(Long pID, Integer amount) {
-        System.out.println(pID);
-        System.out.println(amount);
         products.put(pID, amount);
-//        System.out.println(products.get(p));
     }
 
     public Map<Long, Integer> getProducts() {

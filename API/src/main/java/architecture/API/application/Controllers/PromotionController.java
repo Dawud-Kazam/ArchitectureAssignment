@@ -35,9 +35,6 @@ public class PromotionController {
             }
         }
 
-        System.out.println(temp);
-        System.out.println(discountCode);
-
         if (temp != null) {
             Promotion finalTemp = temp; //to prevent an edge case bug
             return basketRepository.findById(basketID)
