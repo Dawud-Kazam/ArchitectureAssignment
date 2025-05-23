@@ -12,6 +12,7 @@ public class Order {
     private final Long basketID;
 
     private final double totalPrice;
+    
 
     public Order(Long basketID, double totalPrice) {
         this.basketID = basketID;

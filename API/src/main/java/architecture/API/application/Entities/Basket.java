@@ -37,7 +37,7 @@ public class Basket {
 //        System.out.println(products.get(p));
     }
 
-    public Map<Long, Integer> GetProducts() {
+    public Map<Long, Integer> getProducts() {
         return products;
     }
 
@@ -53,20 +53,12 @@ public class Basket {
         return customerID;
     }
 
-    public double getTotalPrice() {
-        double totalPrice = 0;
-        double discountMultiplier = 1;
-        if  (promotion != null) {
-            discountMultiplier = 1 - promotion.getDiscountPercent();
-        }
+    public Promotion getPromotion() {
+        return promotion;
+    }
 
-//        for (Product product : products.keySet()) {
-//            Integer amount = products.get(product);
-//
-//            totalPrice += (product.getFullPrice() * discountMultiplier) * amount;
-//        }
-
-        return totalPrice;
+    public Integer getAmount(Long productID){
+        return products.get(productID);
     }
 
 

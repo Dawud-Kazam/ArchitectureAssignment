@@ -20,6 +20,8 @@ public class Promotion  implements Serializable { //Adding "Serializable" esnure
     @NotBlank(message = "Discount code cannot be empty")
     private String discountCode;
 
+    public Promotion(){}
+
     public Promotion(double discountPercent, String discountCode) {
         this.discountPercent = discountPercent;
         this.discountCode = discountCode;

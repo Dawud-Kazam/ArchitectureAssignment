@@ -1,16 +1,10 @@
 package architecture.API.application.Controllers;
 
-import architecture.API.ApiApplication;
 import architecture.API.application.Entities.Basket;
-import architecture.API.application.Entities.Product;
-import architecture.API.application.Entities.Promotion;
 import architecture.API.infrastructure.BasketRepository;
 import architecture.API.infrastructure.ProductRepository;
-import architecture.API.infrastructure.PromotionRepository;
-import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,6 +58,6 @@ public class BasketController {
 //        System.out.println(basketRepository.findAll());
         Basket temp = basketRepository.getById(1L);
         System.out.println(temp);
-        return "ID: " +  temp.getBasketID() + ", product quantity: " + temp.GetProducts().get(2); //+ ", total price: " + temp.getTotalPrice();
+        return "ID: " +  temp.getBasketID() + ", product quantity: " + temp.getProducts().get(2); //+ ", total price: " + temp.getTotalPrice();
     }
 }

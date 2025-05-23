@@ -2,7 +2,6 @@ package architecture.API.application.Controllers;
 
 import architecture.API.application.Entities.Product;
 import architecture.API.infrastructure.ProductRepository;
-import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
