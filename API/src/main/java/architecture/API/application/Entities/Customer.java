@@ -14,7 +14,7 @@ public class Customer {
 
     Customer(){}
 
-    Customer(Long customerID) {
+    public Customer(Long customerID) {
         this.customerID = customerID;
     }
 

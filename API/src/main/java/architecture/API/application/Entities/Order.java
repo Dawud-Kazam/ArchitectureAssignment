@@ -7,8 +7,26 @@ import jakarta.persistence.Id;
 @Entity
 public class Order {
     private @Id
-    @GeneratedValue Long id;
+    @GeneratedValue Long orderID;
 
-    
+    private final Long basketID;
 
+    private final double totalPrice;
+
+    public Order(Long basketID, double totalPrice) {
+        this.basketID = basketID;
+        this.totalPrice = totalPrice;
+    }
+
+    public Long getOrderID() {
+        return orderID;
+    }
+
+    public Long getBasketID() {
+        return basketID;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
 }

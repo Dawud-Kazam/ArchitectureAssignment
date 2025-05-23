@@ -3,45 +3,88 @@ package architecture.API.application.Entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Entity
 public class Basket {
     private @Id
-    @GeneratedValue Long id;
+    @GeneratedValue Long basketID;
 
     private Long customerID;
-    private Map<Product, Integer> products;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    private HashMap<Product, Integer> products;
     private Promotion promotion;
 
-    Basket(long customerID){
-        promotion = new Promotion(0, "");
+    Basket(){}
+
+
+    public Basket(long customerID) {
+//        promotion = new Promotion(0, "");
         this.customerID = customerID;
+        products = new HashMap<Product, Integer>();
     }
 
-    public void AddProduct(Product p, Integer amount){
+    public void AddProduct(Product p, Integer amount) {
+        System.out.println(p);
+        System.out.println(amount);
         products.put(p, amount);
+        System.out.println(products.get(p));
     }
 
-    public Map<Product, Integer> GetProducts(){
+    public Map<Product, Integer> GetProducts() {
         return products;
     }
 
-    public void ApplyPromotion(Promotion promotion){
+    public void ApplyPromotion(Promotion promotion) {
         this.promotion = promotion;
     }
 
-    public double getTotalPrice(){
-        double discountMultiplier = 1 - promotion.getDiscountPercent();
-         double totalPrice = 0;
+    public Long getBasketID() {
+        return basketID;
+    }
 
-         for (Product product: products.keySet()) {
-             Integer amount = products.get(product);
+    public Long getCustomerID() {
+        return customerID;
+    }
 
-             totalPrice += (product.getFullPrice() * discountMultiplier) * amount;
-         }
+    public double getTotalPrice() {
+        double totalPrice = 0;
+        double discountMultiplier = 1;
+        if  (promotion != null) {
+            discountMultiplier = 1 - promotion.getDiscountPercent();
+        }
 
-         return totalPrice;
+        for (Product product : products.keySet()) {
+            Integer amount = products.get(product);
+
+            totalPrice += (product.getFullPrice() * discountMultiplier) * amount;
+        }
+
+        return totalPrice;
+    }
+
+
+    @Override
+    public String toString() {
+        return "basket id: " + basketID + ", customer id: " + this.customerID + "prodcuts: " + products.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(basketID, customerID, promotion, products);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Basket b = (Basket) obj;
+        return this.basketID.equals(b.basketID) && this.customerID.equals(b.customerID) && this.promotion.equals(b.promotion) && this.products.equals(b.products);
     }
 }
